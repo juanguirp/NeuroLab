@@ -103,7 +103,7 @@ CREATE TABLE `tab_detalles_solicitud` (
   `det_dispositivo_solicitado` int(11) NOT NULL COMMENT 'Identifiacion del dispositivo que se esta solicitando',
   `det_hora_entrega` datetime NOT NULL COMMENT 'Hora de entrega del dispositivo',
   `det_hora_devolucion` datetime NOT NULL COMMENT 'Hora de devolucion del dispositivo',
-  `det_horas_solicitadas` time NOT NULL COMMENT 'Horas reservadas de un dispositivo',
+  `det_horas_solicitadas` int(11) NOT NULL COMMENT 'Horas reservadas de un dispositivo',
   PRIMARY KEY (`det_solicitud`,`det_dispositivo_solicitado`),
   KEY `tab_detalles_solicitud_tab_dispositivos_FK` (`det_dispositivo_solicitado`),
   CONSTRAINT `tab_detalles_solicitud_tab_dispositivos_FK` FOREIGN KEY (`det_dispositivo_solicitado`) REFERENCES `tab_dispositivos` (`dis_id`) ON DELETE CASCADE ON UPDATE CASCADE,
