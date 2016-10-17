@@ -41,12 +41,12 @@ CREATE TABLE `tab_investigadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Esta tabla almacena la informacion de los investigadores que hacen solicitudes de prestamo';
 
 --
--- Table structure for table `tab_tipo_dispositivo`
+-- Table structure for table `tab_tipos_dispositivo`
 --
 
-DROP TABLE IF EXISTS `tab_tipo_dispositivo`;
+DROP TABLE IF EXISTS `tab_tipos_dispositivo`;
 
-CREATE TABLE `tab_tipo_dispositivo` (
+CREATE TABLE `tab_tipos_dispositivo` (
   `tip_id` varchar(4) NOT NULL COMMENT 'Codigo que identifica un tipo de dispositivo',
   `tip_clase` varchar(20) NOT NULL COMMENT 'Especifica la clase o tipo de dispositivo',
   PRIMARY KEY (`tip_id`)
@@ -67,9 +67,9 @@ CREATE TABLE `tab_dispositivos` (
   `dis_fecha_registro` date NOT NULL COMMENT 'Fecha en la que se registro el dispositivo en la base de datos',
   PRIMARY KEY (`dis_id`),
   KEY `tab_dispositivos_tab_administradores_FK` (`dis_registrado_por`),
-  KEY `tab_dispositivos_tab_tipo_dispositivo_FK` (`dis_tipo_dispositivo`),
+  KEY `tab_dispositivos_tab_tipos_dispositivo_FK` (`dis_tipo_dispositivo`),
   CONSTRAINT `tab_dispositivos_tab_administradores_FK` FOREIGN KEY (`dis_registrado_por`) REFERENCES `tab_administradores` (`adm_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `tab_dispositivos_tab_tipo_dispositivo_FK` FOREIGN KEY (`dis_tipo_dispositivo`) REFERENCES `tab_tipo_dispositivo` (`tip_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `tab_dispositivos_tab_tipos_dispositivo_FK` FOREIGN KEY (`dis_tipo_dispositivo`) REFERENCES `tab_tipos_dispositivo` (`tip_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Esta tabla almacena los dispositivos del laboratorio';
 
 --

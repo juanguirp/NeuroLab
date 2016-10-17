@@ -1,7 +1,7 @@
 package co.edu.udea.iw.dto;
 
 /**
- * Clase que se utilizara como objeto de transferencia de datos para la tabla tab_tipo_dispositivo.
+ * Clase que se utilizara como objeto de transferencia de datos para la tabla tab_tipos_dispositivo.
  * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
  */
 public class TipoDispositivo {
