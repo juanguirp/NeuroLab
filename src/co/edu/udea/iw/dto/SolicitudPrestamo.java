@@ -16,6 +16,7 @@ public class SolicitudPrestamo {
 	private Investigador solicitante;
 	private Administrador adminProcesador;
 	private Boolean respuesta;
+	
 	/**
 	 * Constructor para un objeto de la clase SolicitudPrestamo.
 	 * @param id - Numero que identifica una solicitud de prestamo.
@@ -34,7 +35,7 @@ public class SolicitudPrestamo {
 	}
 	
 	/* 
-	 * Getters y Setters para los atributos de un dispositivo.
+	 * Getters y Setters para los atributos de una solicitud de prestamo.
 	 */
 	
 	public int getId() {
