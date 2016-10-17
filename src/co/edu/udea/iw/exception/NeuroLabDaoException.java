@@ -1,25 +1,35 @@
 package co.edu.udea.iw.exception;
 
-import org.apache.log4j.Logger;
+
+import co.edu.udea.iw.test.NeuroLabLogger;
 
 public class NeuroLabDaoException extends Exception{
 
-	final static Logger LOGGER = Logger.getLogger(NeuroLabDaoException.class);
+	//private NeuroLabLogger LOGGER = NeuroLabLogger.obtenerLogger();
 	
 	public NeuroLabDaoException(String message, Throwable cause) {
-		super(message, cause);
-		LOGGER.error("*** Error de conexion: " + message);
+		//super(message, cause);
+		
+		
+			//LOGGER.escribirLog("*** Error de conexion: " + message);
+		
 		// LOGGER.error("*** Causa: " + cause);
 	}
 
 	public NeuroLabDaoException(String message) {
-		super(message);
-		LOGGER.error("*** Error de conexion: " + message);
+		//super(message);
+		
+		
+		//LOGGER.escribirLog("*** Error de conexion: " + message);
+		
 	}
 
 	public NeuroLabDaoException(Throwable cause) {
-		super(cause);
-		// TODO Auto-generated constructor stub
+		//super(cause);
+		
+		
+		//LOGGER.escribirLog("*** Error de conexion: " + cause);
+		
 	}
 	
 	
