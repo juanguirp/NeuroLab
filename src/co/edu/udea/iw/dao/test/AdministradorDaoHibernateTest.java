@@ -1,11 +1,13 @@
-package co.edu.udea.iw.test;
+package co.edu.udea.iw.dao.test;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
 
-
-
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,26 +19,31 @@ import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = ("classpath:spring.cfg.xml"))
+@ContextConfiguration(locations = ("classpath:configuracion.cfg.xml"))
 public class AdministradorDaoHibernateTest {
 	
 	@Autowired
 	AdministradorDao administradorDao;
 
-	private NeuroLabLogger LOGGER = NeuroLabLogger.obtenerLogger();
+	static Logger LOGGER = Logger.getLogger(AdministradorDaoHibernateTest.class);
+	
+	@Before
+	public void inicializarLogger(){
+		BasicConfigurator.configure();
+	}
 	
 	@Test
 	public void hayAdministradores() {
+//		LOGGER.info("********* Numero de administradores: ");
 		List<Administrador> administradores;
 		try {
 			administradores = administradorDao.listarAdministradores();
-			
-			LOGGER.escribirLog("********* Numero de administradores: " + String.valueOf(administradores.size()));
-			
+			LOGGER.info("********* Numero de administradores: " + String.valueOf(administradores.size()));
 			assertTrue(administradores.size() > 0);
 		} catch (NeuroLabDaoException e) {
 			// TODO: handle exception
 		}
+		
 	}
 	
 	@Test
@@ -46,8 +53,8 @@ public class AdministradorDaoHibernateTest {
 			administradores = administradorDao.listarAdministradores();
 			for(Administrador administrador : administradores){
 				
-				LOGGER.escribirLog("********* Nombre: " + String.valueOf(administrador.getNombre()));
-				LOGGER.escribirLog("********* Apellido: " + String.valueOf(administrador.getApellidos()));
+				LOGGER.info("********* Nombre: " + String.valueOf(administrador.getNombre()));
+				LOGGER.info("********* Apellido: " + String.valueOf(administrador.getApellidos()));
 							
 			}			
 			assertTrue(administradores.size() > 0);

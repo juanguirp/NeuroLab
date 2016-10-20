@@ -12,9 +12,19 @@ import co.edu.udea.iw.dao.AdministradorDao;
 import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
+/**
+ * Implementacion de la interface que permite acceder a la tabla tab_administradores.
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ */
 public class AdministradorDaoHibernate implements AdministradorDao {
 
+	/* Variables de instancia global.
+	 */
 	private SessionFactory sessionFactory;
+	
+	/* 
+	 * Getters y Setters para los atributos de la clase.
+	 */
 	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
@@ -23,7 +33,15 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
+	
+	/*
+	 * Metodos implementados de la interface.
+	 */
 
+	/*
+	 * Entrega una lista con los administradores en la base de datos.
+	 * @see co.edu.udea.iw.dao.AdministradorDao#listarAdministradores()
+	 */
 	@Override
 	public List<Administrador> listarAdministradores() throws NeuroLabDaoException {
 		Session session = null;
@@ -47,6 +65,10 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 		return administradores;
 	}
 
+	/*
+	 * Entrega los datos de un administrador dado su identificador.
+	 * @see co.edu.udea.iw.dao.AdministradorDao#obtenerAdministrador(java.lang.String)
+	 */
 	@Override
 	public Administrador obtenerAdministrador(String id) throws NeuroLabDaoException {
 		Session session = null;
@@ -70,6 +92,10 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 		return administrador;
 	}
 
+	/*
+	 * Permite crear un nuevo administrador y registrarlo en la base de datos.
+	 * @see co.edu.udea.iw.dao.AdministradorDao#registrarAdministrador(co.edu.udea.iw.dto.Administrador)
+	 */
 	@Override
 	public void registrarAdministrador(Administrador administrador) throws NeuroLabDaoException {
 		Session session = null;
@@ -90,6 +116,10 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 		*/
 	}
 
+	/*
+	 * Actualiza la informacion de un administrador en la base de datos.
+	 * @see co.edu.udea.iw.dao.AdministradorDao#actualizarAdministrador(co.edu.udea.iw.dto.Administrador)
+	 */
 	@Override
 	public void actualizarAdministrador(Administrador administrador) throws NeuroLabDaoException {
 		Session session = null;
@@ -111,6 +141,10 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 
 	}
 
+	/*
+	 * Permite eliminar un administrador de la base de datos.
+	 * @see co.edu.udea.iw.dao.AdministradorDao#eliminarAdministrador(java.lang.String)
+	 */
 	@Override
 	public void eliminarAdministrador(String id) throws NeuroLabDaoException {
 		Session session = null;
