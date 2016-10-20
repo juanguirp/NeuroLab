@@ -16,7 +16,7 @@ public class Investigador{
 	private String contrasena;
 	
 	/**
-	 * Constructor para la clase Investigador. 
+	 * Constructores para la clase Investigador. 
 	 * @param id - Identificador, login o nombre de usuario para un investigador.
 	 * @param nombre - Nombre real de un investigador.
 	 * @param apellidos - Apellidos de un investigador.
@@ -30,6 +30,10 @@ public class Investigador{
 		this.correo = correo;
 		this.contrasena = contrasena;
 	}	
+	
+	public Investigador() {
+		
+	}
 	
 	/* 
 	 * Getters y Setters para los atributos de un administrador.

@@ -16,7 +16,7 @@ public class Administrador {
 	private String contrasena;
 
 	/**
-	 * Constructor para la clase Administrador. 
+	 * Constructores para la clase Administrador. 
 	 * @param id - Identificador, login o nombre de usuario para un administrador.
 	 * @param nombre - Nombre real de un administrador.
 	 * @param apellidos - Apellidos de un administrador.
@@ -29,6 +29,10 @@ public class Administrador {
 		this.apellidos = apellidos;
 		this.correo = correo;
 		this.contrasena = contrasena;
+	}
+	
+	public Administrador(){
+		
 	}
 	
 	/* 

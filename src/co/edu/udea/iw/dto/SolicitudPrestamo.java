@@ -18,7 +18,7 @@ public class SolicitudPrestamo {
 	private Boolean respuesta;
 	
 	/**
-	 * Constructor para un objeto de la clase SolicitudPrestamo.
+	 * Constructores para un objeto de la clase SolicitudPrestamo.
 	 * @param id - Numero que identifica una solicitud de prestamo.
 	 * @param fechaSolicitud - Fecha en la que se hace la solicitud.
 	 * @param solicitante - Identificacion del investigador que hace la solicitud
@@ -32,6 +32,10 @@ public class SolicitudPrestamo {
 		this.solicitante = solicitante;
 		this.adminProcesador = adminProcesador;
 		this.respuesta = respuesta;
+	}
+	
+	public SolicitudPrestamo() {
+		
 	}
 	
 	/* 

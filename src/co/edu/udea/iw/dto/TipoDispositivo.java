@@ -13,7 +13,7 @@ public class TipoDispositivo {
 	private String clase;
 	
 	/**
-	 * Constructor para un objeto de la clase TipoDispositivo.
+	 * Constructores para un objeto de la clase TipoDispositivo.
 	 * @param id - Codigo que identifica un tipo de dispositivo.
 	 * @param clase - Nombre de la clase o categoria a la que pertenece un tipo de dispositivo.
 	 */
@@ -21,6 +21,10 @@ public class TipoDispositivo {
 		super();
 		this.id = id;
 		this.clase = clase;
+	}
+	
+	public TipoDispositivo() {
+		
 	}
 	
 	/* 

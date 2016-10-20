@@ -19,7 +19,7 @@ public class Dispositivo {
 	private Date fechaRegistro;
 	
 	/**
-	 * Constructor para un objeto de la clase Dispositivo.
+	 * Constructores para un objeto de la clase Dispositivo.
 	 * @param id - Numero que identifica a un dispositivo.
 	 * @param tipoDispositivo - Tipo o clase de dispositivo.
 	 * @param disponible - 0: No disponible, 1: Disponible.
@@ -35,6 +35,10 @@ public class Dispositivo {
 		this.especificaciones = especificaciones;
 		this.adminRegistrador = adminRegistrador;
 		this.fechaRegistro = fechaRegistro;
+	}
+	
+	public Dispositivo() {
+		
 	}
 
 	/* 

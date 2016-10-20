@@ -19,7 +19,7 @@ public class DetalleSolicitud {
 	private int horasSolicitadas;
 	
 	/**
-	 * Constructor para un objeto de la clase DetalleSolicitud.
+	 * Constructores para un objeto de la clase DetalleSolicitud.
 	 * @param solicitud - Numero de identificacion de la solicitud de prestamo asociada.
 	 * @param dispositivoSolicitado - Numero de identificacion del dispositivo solicitado.
 	 * @param horaEntrega - Fecha en la que se entrego el dispositivo solicitado.
@@ -33,6 +33,10 @@ public class DetalleSolicitud {
 		this.horaEntrega = horaEntrega;
 		this.horaDevolucion = horaDevolucion;
 		this.horasSolicitadas = horasSolicitadas;
+	}
+	
+	public DetalleSolicitud() {
+		
 	}
 	
 	/* 
