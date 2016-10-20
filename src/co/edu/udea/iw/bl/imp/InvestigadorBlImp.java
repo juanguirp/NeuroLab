@@ -11,6 +11,10 @@ public class InvestigadorBlImp implements InvestigadorBl {
 
 	InvestigadorDao investigadorDao;
 	
+	public InvestigadorBlImp(InvestigadorDao investigadorDao) {
+		this.investigadorDao = investigadorDao;
+	}
+
 	@Override
 	public boolean validarInvestigador(String id, String contrasena) throws NeuroLabDaoException {
 		Investigador investigador = new Investigador(id, "", "", "", contrasena);
