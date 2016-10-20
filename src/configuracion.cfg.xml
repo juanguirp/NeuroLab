@@ -61,5 +61,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="investigadorBl" class="co.edu.udea.iw.bl.imp.InvestigadorBlImp">
+		<constructor-arg name="investigadorDao" ref="investigadorDao"></constructor-arg>
+	</bean>
+	
 
 </beans>
