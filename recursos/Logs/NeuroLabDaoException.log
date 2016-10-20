@@ -1,1 +1,3 @@
 
+-> *** Mensaje de error: org.hibernate.InstantiationException: No default constructor for entity: co.edu.udea.iw.dto.Administrador
+-> *** Mensaje de error: org.hibernate.InstantiationException: No default constructor for entity: co.edu.udea.iw.dto.Administrador
