@@ -19,17 +19,22 @@ import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
+/**
+ * Prueba para la clase DispositivoDaoHibernate.
+ * 
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = ("classpath:configuracion.cfg.xml"))
 public class DispositivoDaoHibernateTest {
 
 	@Autowired
 	DispositivoDao dispositivoDao;
-	
+
 	static Logger LOGGER = Logger.getLogger(DispositivoDaoHibernateTest.class);
-	
+
 	@Before
-	public void inicializarLogger(){
+	public void inicializarLogger() {
 		BasicConfigurator.configure();
 	}
 
@@ -38,45 +43,43 @@ public class DispositivoDaoHibernateTest {
 		List<Dispositivo> dispositivos;
 		try {
 			dispositivos = dispositivoDao.listarDispositivos();
-			
-			LOGGER.debug("********* Numero de investigadores: " + String.valueOf(dispositivos.size()));
-			
+
+			LOGGER.info("********* Numero de dispositivos: " + String.valueOf(dispositivos.size()));
+
 			assertTrue(dispositivos.size() > 0);
 		} catch (NeuroLabDaoException e) {
 			// TODO: handle exception
 		}
 	}
-	
+
 	@Test
 	public void verDispositivos() {
 		List<Dispositivo> dispositivos;
 		try {
 			dispositivos = dispositivoDao.listarDispositivos();
-			for(Dispositivo dispositivo : dispositivos){
-				
-				LOGGER.debug("********* Id: " + String.valueOf(dispositivo.getId()));
-				LOGGER.debug("********* Especificaciones: " + String.valueOf(dispositivo.getEspecificaciones()));
-				
-							
-			}			
+			for (Dispositivo dispositivo : dispositivos) {
+				LOGGER.info("********* Id: " + String.valueOf(dispositivo.getId()));
+				LOGGER.info("********* Especificaciones: " + String.valueOf(dispositivo.getEspecificaciones()));
+			}
 			assertTrue(dispositivos.size() > 0);
 		} catch (NeuroLabDaoException e) {
 			// TODO: handle exception
 		}
 	}
-	
+
 	@Test
-	public void guardarDispositivo(){
+	public void guardarDispositivo() {
 		int id = 7;
 		String tipoDispositivo = "Tableta";
 		Boolean disponible = Boolean.TRUE;
 		String especificaciones = "Tablet de 100 pulgadas marca Eiser";
 		Administrador adminRegistrador = new Administrador("eduard", "Edwin", "Osorio", "", "");
 		Date fechaRegistro = new Date();
-		Dispositivo dispositivo = new Dispositivo(id, tipoDispositivo, disponible, especificaciones, adminRegistrador, fechaRegistro);
-		try{
+		Dispositivo dispositivo = new Dispositivo(id, tipoDispositivo, disponible, especificaciones, adminRegistrador,
+				fechaRegistro);
+		try {
 			dispositivoDao.registrarDispositivo(dispositivo);
-		}catch (NeuroLabDaoException e) {
+		} catch (NeuroLabDaoException e) {
 			// TODO: handle exception
 		}
 	}
