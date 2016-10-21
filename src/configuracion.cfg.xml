@@ -65,5 +65,9 @@
 		<constructor-arg name="investigadorDao" ref="investigadorDao"></constructor-arg>
 	</bean>
 	
+	<bean id="administradorBl" class="co.edu.udea.iw.bl.imp.AdministradorBlImp">
+		<constructor-arg name="administradorDao" ref="administradorDao"></constructor-arg>
+	</bean>
+	
 
 </beans>
