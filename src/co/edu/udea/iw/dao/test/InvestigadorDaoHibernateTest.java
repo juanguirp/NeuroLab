@@ -37,7 +37,7 @@ public class InvestigadorDaoHibernateTest {
 		try {
 			investigadores = investigadorDao.listarInvestigadores();
 			
-			LOGGER.debug("********* Numero de investigadores: " + String.valueOf(investigadores.size()));
+			LOGGER.info("********* Numero de investigadores: " + String.valueOf(investigadores.size()));
 			
 			assertTrue(investigadores.size() > 0);
 		} catch (NeuroLabDaoException e) {
@@ -51,10 +51,10 @@ public class InvestigadorDaoHibernateTest {
 		try {
 			investigadores = investigadorDao.listarInvestigadores();
 			for(Investigador investigador : investigadores){
-				
-				LOGGER.debug("********* Nombre: " + String.valueOf(investigador.getNombre()));
-				LOGGER.debug("********* Apellido: " + String.valueOf(investigador.getApellidos()));
-							
+				LOGGER.info("********* Id: " + String.valueOf(investigador.getId()));
+				LOGGER.info("********* Nombre: " + String.valueOf(investigador.getNombre()));
+				LOGGER.info("********* Apellido: " + String.valueOf(investigador.getApellidos()));
+				LOGGER.info("********* Contrasena: " + String.valueOf(investigador.getContrasena()));
 			}			
 			assertTrue(investigadores.size() > 0);
 		} catch (NeuroLabDaoException e) {
