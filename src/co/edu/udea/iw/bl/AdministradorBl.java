@@ -12,10 +12,15 @@ public interface AdministradorBl {
 
 	/**
 	 * Valida el ingreso de un administrador al sistema.
-	 * @param id - Identificador o nombre de usuario para un administrador.
-	 * @param contrasena - Contrasena de un administrador
-	 * @return - Valor logico que indica si el administrador existe o no en el sistema.
-	 * @throws NeuroLabDaoException cuandsso hay algun problema en la conexion.
+	 * 
+	 * @param id
+	 *            - Identificador o nombre de usuario para un administrador.
+	 * @param contrasena
+	 *            - Contrasena de un administrador
+	 * @return - Valor logico que indica si el administrador existe o no en el
+	 *         sistema.
+	 * @throws NeuroLabDaoException
+	 *             cuandsso hay algun problema en la conexion.
 	 */
 	public boolean validarAdministrador(String id, String contrasena) throws NeuroLabDaoException;
 
