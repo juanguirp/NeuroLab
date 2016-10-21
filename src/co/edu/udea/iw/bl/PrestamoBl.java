@@ -2,6 +2,8 @@ package co.edu.udea.iw.bl;
 
 import java.util.Date;
 
+import co.edu.udea.iw.dto.Dispositivo;
+import co.edu.udea.iw.dto.SolicitudPrestamo;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
 /**
