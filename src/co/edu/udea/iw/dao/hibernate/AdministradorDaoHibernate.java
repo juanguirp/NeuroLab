@@ -41,9 +41,12 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 	 * Metodos implementados de la interface.
 	 */
 
-	/*
+	/**
 	 * Entrega una lista con los administradores en la base de datos.
 	 * 
+	 * @return lista de administradores.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
 	 * @see co.edu.udea.iw.dao.AdministradorDao#listarAdministradores()
 	 */
 	@Override
@@ -65,21 +68,26 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 		return administradores;
 	}
 
-	/*
+	/**
 	 * Entrega los datos de un administrador dado su identificador.
 	 * 
+	 * @param id
+	 *            - Identificador, login o nombre de usuario de un
+	 *            administrador.
+	 * @return DTO de un administrador con sus datos.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
 	 * @see co.edu.udea.iw.dao.AdministradorDao#obtenerAdministrador(java.lang.
-	 * String)
+	 *      String)
 	 */
 	@Override
 	public Administrador obtenerAdministrador(String id) throws NeuroLabDaoException {
 		Administrador administrador = null;
-		
 
 		try {
 			List<Administrador> administradores = listarAdministradores();
 			administrador = administradores.get(0);
-			
+
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
 		}
@@ -90,12 +98,15 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 		return administrador;
 	}
 
-	/*
+	/**
 	 * Permite crear un nuevo administrador y registrarlo en la base de datos.
 	 * 
-	 * @see
-	 * co.edu.udea.iw.dao.AdministradorDao#registrarAdministrador(co.edu.udea.iw
-	 * .dto.Administrador)
+	 * @param administrador
+	 *            - DTO con los datos del administrador a guardar.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
+	 * @see co.edu.udea.iw.dao.AdministradorDao#registrarAdministrador(co.edu.udea.iw
+	 *      .dto.Administrador)
 	 */
 	@Override
 	public void registrarAdministrador(Administrador administrador) throws NeuroLabDaoException {
@@ -116,12 +127,15 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 		 */
 	}
 
-	/*
+	/**
 	 * Actualiza la informacion de un administrador en la base de datos.
 	 * 
-	 * @see
-	 * co.edu.udea.iw.dao.AdministradorDao#actualizarAdministrador(co.edu.udea.
-	 * iw.dto.Administrador)
+	 * @param administrador
+	 *            - DTO con los datos del administrador a modificar.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
+	 * @see co.edu.udea.iw.dao.AdministradorDao#actualizarAdministrador(co.edu.udea.
+	 *      iw.dto.Administrador)
 	 */
 	@Override
 	public void actualizarAdministrador(Administrador administrador) throws NeuroLabDaoException {
@@ -140,11 +154,16 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 
 	}
 
-	/*
+	/**
 	 * Permite eliminar un administrador de la base de datos.
 	 * 
+	 * @param id
+	 *            - Identificador, login o nombre de usuario de un
+	 *            administrador.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
 	 * @see co.edu.udea.iw.dao.AdministradorDao#eliminarAdministrador(java.lang.
-	 * String)
+	 *      String)
 	 */
 	@Override
 	public void eliminarAdministrador(String id) throws NeuroLabDaoException {

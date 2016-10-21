@@ -12,16 +12,19 @@ import co.edu.udea.iw.dto.Investigador;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
 /**
- * Implementacion de la interface que permite acceder a la tabla tab_administradores.
+ * Implementacion de la interface que permite acceder a la tabla
+ * tab_administradores.
+ * 
  * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
  */
 public class InvestigadorDaoHibernate implements InvestigadorDao {
 
-	/* Variables de instancia global.
+	/*
+	 * Variables de instancia global.
 	 */
 	private SessionFactory sessionFactory;
 
-	/* 
+	/*
 	 * Getters y Setters para los atributos de la clase.
 	 */
 	public SessionFactory getSessionFactory() {
@@ -31,13 +34,17 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	
+
 	/*
 	 * Metodos implementados de la interface.
 	 */
-	
-	/*
+
+	/**
 	 * Entrega una lista con los investigadores en la base de datos.
+	 * 
+	 * @return lista de investigadores.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
 	 * @see co.edu.udea.iw.dao.InvestigadorDao#listarInvestigadores()
 	 */
 	@Override
@@ -59,20 +66,25 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 		return investigadores;
 	}
 
-	/*
+	/**
 	 * Entrega los datos de un investigador dado su identificador.
+	 * 
+	 * @param id
+	 *            - Identificador, login o nombre de usuario de un investigador.
+	 * @return DTO de un investigador con sus datos.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
 	 * @see co.edu.udea.iw.dao.InvestigadorDao#obtenerInvestigador(java.lang.String)
 	 */
 	@Override
 	public Investigador obtenerInvestigador(String id) throws NeuroLabDaoException {
-		
+
 		Investigador investigador = null;
-		
 
 		try {
 			List<Investigador> investigadores = listarInvestigadores();
 			investigador = investigadores.get(0);
-			
+
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
 		}
@@ -83,20 +95,25 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 		return investigador;
 	}
 
-	/*
+	/**
 	 * Permite crear un nuevo investigador y registrarlo en la base de datos.
+	 * 
+	 * @param administrador
+	 *            - DTO con los datos del investigador a guardar.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
 	 * @see co.edu.udea.iw.dao.InvestigadorDao#registrarInvestigador(co.edu.udea.iw.dto.Investigador)
 	 */
 	@Override
 	public void registrarInvestigador(Investigador investigador) throws NeuroLabDaoException {
 		Session session = null;
-		//Transaction tx = null;
+		// Transaction tx = null;
 		try {
 			session = sessionFactory.openSession();
 			// Descomentar tx para persistir los cambios hechos en las pruebas.
-			//tx = session.beginTransaction();
+			// tx = session.beginTransaction();
 			session.save(investigador);
-			//tx.commit();
+			// tx.commit();
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
 		}
@@ -107,9 +124,15 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 
 	}
 
-	/*
+	/**
 	 * Actualiza la informacion de un investigador en la base de datos.
-	 * @see co.edu.udea.iw.dao.InvestigadorDao#actualizarInvestigador(co.edu.udea.iw.dto.Investigador)
+	 * 
+	 * @param administrador
+	 *            - DTO con los datos del investigador a modificar.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
+	 * @see co.edu.udea.iw.dao.InvestigadorDao#actualizarInvestigador(co.edu.udea.iw.
+	 *      dto.Investigador)
 	 */
 	@Override
 	public void actualizarInvestigador(Investigador investigador) throws NeuroLabDaoException {
@@ -128,8 +151,13 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 
 	}
 
-	/*
+	/**
 	 * Permite eliminar un investigador de la base de datos.
+	 * 
+	 * @param id
+	 *            - Identificador, login o nombre de usuario de un investigador.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
 	 * @see co.edu.udea.iw.dao.InvestigadorDao#eliminarInvestigador(java.lang.String)
 	 */
 	@Override
