@@ -60,6 +60,6 @@ public interface DispositivoDao {
 	 * @throws NeuroLabDaoException
 	 *             cuando hay algun problema en la conexion.
 	 */
-	// public void eliminarDispositivo(int id) throws NeuroLabDaoException;
+	public void eliminarDispositivo(int id) throws NeuroLabDaoException;
 
 }
