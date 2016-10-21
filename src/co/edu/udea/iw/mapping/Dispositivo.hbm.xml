@@ -20,7 +20,7 @@
             <column name="dis_registrado_por" length="15" not-null="true"/>
         </many-to-one>
         <property name="fechaRegistro" type="java.util.Date">
-            <column name="dis_recha_registro" length="120" not-null="true"/>
+            <column name="dis_fecha_registro" length="120" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

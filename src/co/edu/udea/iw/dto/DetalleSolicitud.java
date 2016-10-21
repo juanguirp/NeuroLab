@@ -3,60 +3,68 @@ package co.edu.udea.iw.dto;
 import java.util.Date;
 
 /**
- * Clase que se utilizara como objeto de transferencia de datos para la tabla tab_solicitudes_prestamo.
+ * Clase que se utilizara como objeto de transferencia de datos para la tabla
+ * tab_solicitudes_prestamo.
+ * 
  * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
  */
 public class DetalleSolicitud {
 
-	/* Variables de instancia global que representan las
-	 * caracteristicas o atributos que posee el detalle
-	 * de una solicitud.
+	/*
+	 * Variables de instancia global que representan las caracteristicas o
+	 * atributos que posee el detalle de una solicitud.
 	 */
-	private SolicitudPrestamo solicitud;
-	private Dispositivo dispositivoSolicitado;
+	private int id;
+	private SolicitudPrestamo solicitudAsociada;
 	private Date horaEntrega;
 	private Date horaDevolucion;
 	private int horasSolicitadas;
-	
+
 	/**
 	 * Constructores para un objeto de la clase DetalleSolicitud.
-	 * @param solicitud - Numero de identificacion de la solicitud de prestamo asociada.
-	 * @param dispositivoSolicitado - Numero de identificacion del dispositivo solicitado.
-	 * @param horaEntrega - Fecha en la que se entrego el dispositivo solicitado.
-	 * @param horaDevolucion - Fecha en la que se devolvio el dispositivo.
-	 * @param horasSolicitadas - Numero de horas reservadas.
+	 * 
+	 * @param solicitud
+	 *            - Numero de identificacion de la solicitud de prestamo
+	 *            asociada.
+	 * @param horaEntrega
+	 *            - Fecha en la que se entrego el dispositivo solicitado.
+	 * @param horaDevolucion
+	 *            - Fecha en la que se devolvio el dispositivo.
+	 * @param horasSolicitadas
+	 *            - Numero de horas reservadas.
 	 */
-	public DetalleSolicitud(SolicitudPrestamo solicitud, Dispositivo dispositivoSolicitado, Date horaEntrega,
-			Date horaDevolucion, int horasSolicitadas) {
-		this.solicitud = solicitud;
-		this.dispositivoSolicitado = dispositivoSolicitado;
+	public DetalleSolicitud(int id, SolicitudPrestamo solicitudAsociada, Date horaEntrega, Date horaDevolucion,
+			int horasSolicitadas) {
+		this.id = id;
+		this.solicitudAsociada = solicitudAsociada;
 		this.horaEntrega = horaEntrega;
 		this.horaDevolucion = horaDevolucion;
 		this.horasSolicitadas = horasSolicitadas;
 	}
-	
+
 	public DetalleSolicitud() {
-		
+
 	}
-	
-	/* 
-	 * Getters y Setters para los atributos de un objeto de la clase DetalleSolicitud.
+
+	/*
+	 * Getters y Setters para los atributos de un objeto de la clase
+	 * DetalleSolicitud.
 	 */
 
-	public SolicitudPrestamo getSolicitud() {
-		return solicitud;
+	public int getId() {
+		return id;
 	}
 
-	public void setSolicitud(SolicitudPrestamo solicitud) {
-		this.solicitud = solicitud;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public Dispositivo getDispositivoSolicitado() {
-		return dispositivoSolicitado;
+	public SolicitudPrestamo getSolicitudAsociada() {
+		return solicitudAsociada;
 	}
 
-	public void setDispositivoSolicitado(Dispositivo dispositivoSolicitado) {
-		this.dispositivoSolicitado = dispositivoSolicitado;
+	public void setSolicitudAsociada(SolicitudPrestamo solicitudAsociada) {
+		this.solicitudAsociada = solicitudAsociada;
 	}
 
 	public Date getHoraEntrega() {
@@ -82,5 +90,5 @@ public class DetalleSolicitud {
 	public void setHorasSolicitadas(int horasSolicitadas) {
 		this.horasSolicitadas = horasSolicitadas;
 	}
-	
+
 }
