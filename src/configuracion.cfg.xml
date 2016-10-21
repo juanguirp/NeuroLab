@@ -28,6 +28,8 @@
 				<value>co/edu/udea/iw/mapping/Administrador.hbm.xml</value>
 				<value>co/edu/udea/iw/mapping/Investigador.hbm.xml</value>
 				<value>co/edu/udea/iw/mapping/Dispositivo.hbm.xml</value>
+				<value>co/edu/udea/iw/mapping/SolicitudPrestamo.hbm.xml</value>
+				<value>co/edu/udea/iw/mapping/Prestamo.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

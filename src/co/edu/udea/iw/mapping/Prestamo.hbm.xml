@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="co.edu.udea.iw.dto.SolicitudPrestamo" table="tab_solicitudes_prestamo">
+	<class name="co.edu.udea.iw.dto.Prestamo" table="tab_prestamos">
 		<id name="id" type="integer">
 			<column name="det_id" />
 			<generator class="assigned" />
