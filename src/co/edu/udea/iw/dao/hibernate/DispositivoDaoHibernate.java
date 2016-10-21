@@ -80,11 +80,14 @@ public class DispositivoDaoHibernate implements DispositivoDao {
 	@Override
 	public Dispositivo obtenerDispositivo(int id) throws NeuroLabDaoException {
 
+		Session session = null;
 		Dispositivo dispositivo = null;
 
 		try {
-			List<Dispositivo> dispositivos = listarDispositivos();
-			dispositivo = dispositivos.get(0);
+
+			session = sessionFactory.openSession();
+			dispositivo = (Dispositivo) session.load(Dispositivo.class, id);
+
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
 		}
@@ -119,6 +122,34 @@ public class DispositivoDaoHibernate implements DispositivoDao {
 		 * session.close(); } }
 		 */
 
+	}
+
+	/**
+	 * Permite eliminar un dispositivo de la base de datos.
+	 * 
+	 * @param id
+	 *            - Identificador de un dispositivo.
+	 * @throws NeuroLabDaoException
+	 *             cuando hay algun problema en la conexion.
+	 * @see co.edu.udea.iw.dao.DispositivoDao#eliminarDispositivo(int)
+	 */
+	@Override
+	public void eliminarDispositivo(int id) throws NeuroLabDaoException {
+		Session session = null;
+		Dispositivo dispositivo = new Dispositivo();
+		dispositivo.setId(id);
+
+		try {
+			session = sessionFactory.openSession();
+			session.delete(dispositivo);
+
+		} catch (HibernateException e) {
+			throw new NeuroLabDaoException(e);
+		}
+		/*
+		 * TODO: Analizar el cierre de la sesion: finally { if(session != null){
+		 * session.close(); } }
+		 */
 	}
 
 }

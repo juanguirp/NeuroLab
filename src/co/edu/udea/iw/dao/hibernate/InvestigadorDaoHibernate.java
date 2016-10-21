@@ -79,11 +79,13 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 	@Override
 	public Investigador obtenerInvestigador(String id) throws NeuroLabDaoException {
 
+		Session session = null;
 		Investigador investigador = null;
 
 		try {
-			List<Investigador> investigadores = listarInvestigadores();
-			investigador = investigadores.get(0);
+
+			session = sessionFactory.openSession();
+			investigador = (Investigador) session.load(Investigador.class, id);
 
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
@@ -163,7 +165,8 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 	@Override
 	public void eliminarInvestigador(String id) throws NeuroLabDaoException {
 		Session session = null;
-		Investigador investigador = new Investigador(id, "", "", "", "");
+		Investigador investigador = new Investigador();
+		investigador.setId(id);
 
 		try {
 			session = sessionFactory.openSession();

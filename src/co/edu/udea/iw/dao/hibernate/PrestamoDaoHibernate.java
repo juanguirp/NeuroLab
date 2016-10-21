@@ -2,6 +2,11 @@ package co.edu.udea.iw.dao.hibernate;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import co.edu.udea.iw.dao.PrestamoDao;
 import co.edu.udea.iw.dto.Prestamo;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
@@ -13,6 +18,23 @@ import co.edu.udea.iw.exception.NeuroLabDaoException;
  */
 public class PrestamoDaoHibernate implements PrestamoDao {
 
+	/*
+	 * Variables de instancia global.
+	 */
+	private SessionFactory sessionFactory;
+
+	/*
+	 * Getters y Setters para los atributos de la clase.
+	 */
+
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 	/**
 	 * Entrega una lista con los prestamos en la base de datos.
 	 * 
@@ -23,8 +45,21 @@ public class PrestamoDaoHibernate implements PrestamoDao {
 	 */
 	@Override
 	public List<Prestamo> listarPrestamos() throws NeuroLabDaoException {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = null;
+		List<Prestamo> prestamos = null;
+
+		try {
+			session = sessionFactory.openSession();
+			Criteria criteria = session.createCriteria(Prestamo.class);
+			prestamos = criteria.list();
+		} catch (HibernateException e) {
+			throw new NeuroLabDaoException(e);
+		}
+		/*
+		 * TODO: Analizar el cierre de la sesion: finally { if(session != null){
+		 * session.close(); } }
+		 */
+		return prestamos;
 	}
 
 	/**
@@ -39,8 +74,22 @@ public class PrestamoDaoHibernate implements PrestamoDao {
 	 */
 	@Override
 	public Prestamo obtenerPrestamo(int id) throws NeuroLabDaoException {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = null;
+		Prestamo prestamo = null;
+
+		try {
+
+			session = sessionFactory.openSession();
+			prestamo = (Prestamo) session.load(Prestamo.class, id);
+
+		} catch (HibernateException e) {
+			throw new NeuroLabDaoException(e);
+		}
+		/*
+		 * TODO: Analizar el cierre de la sesion: finally { if(session != null){
+		 * session.close(); } }
+		 */
+		return prestamo;
 	}
 
 	/**
@@ -55,8 +104,21 @@ public class PrestamoDaoHibernate implements PrestamoDao {
 	 */
 	@Override
 	public void registrarPrestamo(Prestamo prestamo) throws NeuroLabDaoException {
-		// TODO Auto-generated method stub
+		Session session = null;
 
+		try {
+			session = sessionFactory.openSession();
+			// Descomentar tx para persistir los cambios hechos en las pruebas.
+			// tx = session.beginTransaction();
+			session.save(prestamo);
+			// tx.commit();
+		} catch (HibernateException e) {
+			throw new NeuroLabDaoException(e);
+		}
+		/*
+		 * TODO: Analizar el cierre de la sesion: finally { if(session != null){
+		 * session.close(); } }
+		 */
 	}
 
 	/**
@@ -71,8 +133,18 @@ public class PrestamoDaoHibernate implements PrestamoDao {
 	 */
 	@Override
 	public void actualizarPrestamo(Prestamo prestamo) throws NeuroLabDaoException {
-		// TODO Auto-generated method stub
+		Session session = null;
 
+		try {
+			session = sessionFactory.openSession();
+			session.update(prestamo);
+		} catch (HibernateException e) {
+			throw new NeuroLabDaoException(e);
+		}
+		/*
+		 * TODO: Analizar el cierre de la sesion: finally { if(session != null){
+		 * session.close(); } }
+		 */
 	}
 
 	/**
@@ -86,8 +158,21 @@ public class PrestamoDaoHibernate implements PrestamoDao {
 	 */
 	@Override
 	public void eliminarPrestamo(int id) throws NeuroLabDaoException {
-		// TODO Auto-generated method stub
+		Session session = null;
+		Prestamo prestamo = new Prestamo();
+		prestamo.setId(id);
 
+		try {
+			session = sessionFactory.openSession();
+			session.delete(prestamo);
+
+		} catch (HibernateException e) {
+			throw new NeuroLabDaoException(e);
+		}
+		/*
+		 * TODO: Analizar el cierre de la sesion: finally { if(session != null){
+		 * session.close(); } }
+		 */
 	}
 
 }

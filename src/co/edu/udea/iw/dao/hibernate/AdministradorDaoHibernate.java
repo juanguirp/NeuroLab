@@ -82,11 +82,13 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 	 */
 	@Override
 	public Administrador obtenerAdministrador(String id) throws NeuroLabDaoException {
+		Session session = null;
 		Administrador administrador = null;
 
 		try {
-			List<Administrador> administradores = listarAdministradores();
-			administrador = administradores.get(0);
+
+			session = sessionFactory.openSession();
+			administrador = (Administrador) session.load(Administrador.class, id);
 
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
@@ -168,8 +170,8 @@ public class AdministradorDaoHibernate implements AdministradorDao {
 	@Override
 	public void eliminarAdministrador(String id) throws NeuroLabDaoException {
 		Session session = null;
-		Administrador administrador = new Administrador(id, "", "", "", "");
-
+		Administrador administrador = new Administrador();
+		administrador.setId(id);
 		try {
 			session = sessionFactory.openSession();
 			session.delete(administrador);
