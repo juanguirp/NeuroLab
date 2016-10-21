@@ -65,13 +65,12 @@ public class DispositivoDaoHibernate implements DispositivoDao {
 
 	@Override
 	public Dispositivo obtenerDispositivo(int id) throws NeuroLabDaoException {
-		Session session = null;
+		
 		Dispositivo dispositivo = null;
 
 		try {
-			session = sessionFactory.openSession();
-			Criteria criteria = session.createCriteria(Dispositivo.class).add(Restrictions.eq("dis_id", id));
-			dispositivo = (Dispositivo) criteria.uniqueResult();
+			List<Dispositivo> dispositivos = listarDispositivos();
+			dispositivo = dispositivos.get(0);
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
 		}
