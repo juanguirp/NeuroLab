@@ -1,5 +1,8 @@
 package co.edu.udea.iw.bl.imp;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+
 import co.edu.udea.iw.bl.InvestigadorBl;
 import co.edu.udea.iw.dao.InvestigadorDao;
 import co.edu.udea.iw.dto.Investigador;
@@ -11,23 +14,28 @@ public class InvestigadorBlImp implements InvestigadorBl {
 
 	InvestigadorDao investigadorDao;
 	
+	static Logger LOGGER = Logger.getLogger(InvestigadorBlImp.class);
+	
 	public InvestigadorBlImp(InvestigadorDao investigadorDao) {
 		this.investigadorDao = investigadorDao;
 	}
 
 	@Override
 	public boolean validarInvestigador(String id, String contrasena) throws NeuroLabDaoException {
-		Investigador investigador = new Investigador(id, "", "", "", contrasena);
+		BasicConfigurator.configure();
+		Investigador investigador = new Investigador();
+		Cifrar conversor = new Cifrar();
 		String contrasenaEnBd;
 		String contrasenaCifrada;
 		
 		try{
 			investigador = investigadorDao.obtenerInvestigador(id);
-			if(investigador != null){
-				Cifrar conversor = new Cifrar();
+			if(investigador != null){				
 				contrasenaEnBd = investigador.getContrasena();
+				LOGGER.info("Contrasena en db: " + contrasenaEnBd);
 				contrasenaCifrada = conversor.encrypt(contrasena);
-				if(contrasenaEnBd == contrasenaCifrada){
+				LOGGER.info("Contrasena recibida: " + contrasenaCifrada);
+				if(contrasenaEnBd.equals(contrasenaCifrada)){
 					return true;
 				}
 			}
@@ -39,6 +47,9 @@ public class InvestigadorBlImp implements InvestigadorBl {
 
 	@Override
 	public void crearCuentaInvestigador(String id, String nombre, String apellidos, String correo, String contrasena) throws NeuroLabDaoException {
+		
+		Cifrar conversor = new Cifrar();
+		String contrasenaCifrada;
 		
 		if(id == null || "".equals(id.trim())){
 			throw new NeuroLabDaoException("Debe especificar un identificador o nombre de usuario valido");
@@ -58,8 +69,9 @@ public class InvestigadorBlImp implements InvestigadorBl {
 		if(!Validaciones.isEmail(correo)){
 			throw new NeuroLabDaoException("El correo debe ser valido");
 		}
+		contrasenaCifrada = conversor.encrypt(contrasena);
 		
-		Investigador investigador = new Investigador(id, nombre, apellidos, correo, contrasena);
+		Investigador investigador = new Investigador(id, nombre, apellidos, correo, contrasenaCifrada);
 		investigadorDao.registrarInvestigador(investigador);
 
 	}

@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import co.edu.udea.iw.bl.InvestigadorBl;
+import co.edu.udea.iw.dto.Investigador;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,13 +30,26 @@ public class InvestigadorBlImpTest {
 	}
 
 	@Test
-
-	public void existeInvestigador() {
+	public void validarInicioSesionInvestigador() {
+		boolean validacion = false;
 		try {
-			assertTrue(investigadorBl.validarInvestigador("dani01", "c9eb1d8b152704c9ebeccf8cd8706dad"));
+			validacion = investigadorBl.validarInvestigador("dani01", "dani01");
+			assertTrue(validacion);
 		} catch (NeuroLabDaoException e) {
 			// TODO: handle exception
 		}
 	}
+	
+	@Test
+	public void validarRegistroInvestigador() {
+		try {
+			investigadorBl.crearCuentaInvestigador("dani04", "Danielo", "Cuarto", "elgrande@correo.com", "dani04");
+			assertTrue(true);
+		} catch (NeuroLabDaoException e) {
+			// TODO: handle exception
+		}
+	}
+	
+	
 
 }
