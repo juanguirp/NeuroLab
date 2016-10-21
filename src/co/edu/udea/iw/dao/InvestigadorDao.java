@@ -7,7 +7,6 @@ import co.edu.udea.iw.exception.NeuroLabDaoException;
 
 /**
  * Interface que define los metodos para acceder a la tabla tab_investigadores.
- * @author Juan Fernando Moreno
  * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
  */
 public interface InvestigadorDao {
