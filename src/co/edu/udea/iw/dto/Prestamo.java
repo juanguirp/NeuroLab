@@ -24,8 +24,7 @@ public class Prestamo {
 	 * Constructores para un objeto de la clase Prestamo.
 	 * 
 	 * @param solicitud
-	 *            - Numero de identificacion de la solicitud de prestamo
-	 *            asociada.
+	 *            - Numero de identificacion de un prestamo asociada.
 	 * @param horaEntrega
 	 *            - Fecha en la que se entrego el dispositivo solicitado.
 	 * @param horaDevolucion

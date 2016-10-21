@@ -3,13 +3,16 @@ package co.edu.udea.iw.dto;
 import java.util.Date;
 
 /**
- * Clase que se utilizara como objeto de transferencia de datos para la tabla tab_dispositivos.
+ * Clase que se utilizara como objeto de transferencia de datos para la tabla
+ * tab_dispositivos.
+ * 
  * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
  */
 public class Dispositivo {
-	
-	/* Variables de instancia global que representan las
-	 * caracteristicas o atributos que posee un dispositivo.
+
+	/*
+	 * Variables de instancia global que representan las caracteristicas o
+	 * atributos que posee un dispositivo.
 	 */
 	private int id;
 	private String tipoDispositivo;
@@ -17,15 +20,22 @@ public class Dispositivo {
 	private String especificaciones;
 	private Administrador adminRegistrador;
 	private Date fechaRegistro;
-	
+
 	/**
 	 * Constructores para un objeto de la clase Dispositivo.
-	 * @param id - Numero que identifica a un dispositivo.
-	 * @param tipoDispositivo - Tipo o clase de dispositivo.
-	 * @param disponible - 0: No disponible, 1: Disponible.
-	 * @param especificaciones - Informacion adicional del dispositivo. 
-	 * @param adminRegistrador - Administrador que registro el dispositivo en el sistema.
-	 * @param fechaRegistro - Fecha en la que se registro el dispositivo.
+	 * 
+	 * @param id
+	 *            - Numero que identifica a un dispositivo.
+	 * @param tipoDispositivo
+	 *            - Tipo o clase de dispositivo.
+	 * @param disponible
+	 *            - 0: No disponible, 1: Disponible.
+	 * @param especificaciones
+	 *            - Informacion adicional del dispositivo.
+	 * @param adminRegistrador
+	 *            - Administrador que registro el dispositivo en el sistema.
+	 * @param fechaRegistro
+	 *            - Fecha en la que se registro el dispositivo.
 	 */
 	public Dispositivo(int id, String tipoDispositivo, Boolean disponible, String especificaciones,
 			Administrador adminRegistrador, Date fechaRegistro) {
@@ -36,15 +46,15 @@ public class Dispositivo {
 		this.adminRegistrador = adminRegistrador;
 		this.fechaRegistro = fechaRegistro;
 	}
-	
+
 	public Dispositivo() {
-		
+
 	}
 
-	/* 
+	/*
 	 * Getters y Setters para los atributos de un dispositivo.
 	 */
-	
+
 	public int getId() {
 		return id;
 	}
@@ -92,5 +102,5 @@ public class Dispositivo {
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
-	
+
 }
