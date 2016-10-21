@@ -59,5 +59,5 @@ public interface PrestamoDao {
 	 * @throws NeuroLabDaoException
 	 *             cuando hay algun problema en la conexion.
 	 */
-	public void eliminarPrestamo(String id) throws NeuroLabDaoException;
+	public void eliminarPrestamo(int id) throws NeuroLabDaoException;
 }
