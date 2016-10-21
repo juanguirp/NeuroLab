@@ -55,7 +55,7 @@ public class SolicitudPrestamoDaoHibernateTest {
 		List<SolicitudPrestamo> solicitudes;
 		try {
 			solicitudes = solicitudPrestamoDao.listarSolicitudes();
-			for (SolicitudPrestamo solicitudPrestamo : solicitudeso) {
+			for (SolicitudPrestamo solicitudPrestamo : solicitudes) {
 				LOGGER.info("********* Id: " + String.valueOf(solicitudPrestamo.getId()));
 				LOGGER.info("********* Respuesta: " + String.valueOf(solicitudPrestamo.getRespuesta()));
 			}
