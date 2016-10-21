@@ -4,15 +4,15 @@ import java.util.Date;
 
 /**
  * Clase que se utilizara como objeto de transferencia de datos para la tabla
- * tab_solicitudes_prestamo.
+ * tab_prestamos.
  * 
  * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
  */
-public class DetalleSolicitud {
+public class Prestamo {
 
 	/*
 	 * Variables de instancia global que representan las caracteristicas o
-	 * atributos que posee el detalle de una solicitud.
+	 * atributos que posee un prestamo.
 	 */
 	private int id;
 	private SolicitudPrestamo solicitudAsociada;
@@ -21,7 +21,7 @@ public class DetalleSolicitud {
 	private int horasSolicitadas;
 
 	/**
-	 * Constructores para un objeto de la clase DetalleSolicitud.
+	 * Constructores para un objeto de la clase Prestamo.
 	 * 
 	 * @param solicitud
 	 *            - Numero de identificacion de la solicitud de prestamo
@@ -33,7 +33,7 @@ public class DetalleSolicitud {
 	 * @param horasSolicitadas
 	 *            - Numero de horas reservadas.
 	 */
-	public DetalleSolicitud(int id, SolicitudPrestamo solicitudAsociada, Date horaEntrega, Date horaDevolucion,
+	public Prestamo(int id, SolicitudPrestamo solicitudAsociada, Date horaEntrega, Date horaDevolucion,
 			int horasSolicitadas) {
 		this.id = id;
 		this.solicitudAsociada = solicitudAsociada;
@@ -42,7 +42,7 @@ public class DetalleSolicitud {
 		this.horasSolicitadas = horasSolicitadas;
 	}
 
-	public DetalleSolicitud() {
+	public Prestamo() {
 
 	}
 
