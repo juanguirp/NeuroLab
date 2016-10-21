@@ -49,8 +49,7 @@ public interface DispositivoDao {
 	 * 
 	 * @throws NeuroLabDaoException cuando hay algun problema en la conexion.
 	 */
-	// public void actualizarDispositivo(Dispositivo dispositivo) throws
-	// NeuroLabDaoException;
+	public void actualizarDispositivo(Dispositivo dispositivo) throws NeuroLabDaoException;
 
 	/**
 	 * Permite eliminar un dispositivo de la base de datos.
