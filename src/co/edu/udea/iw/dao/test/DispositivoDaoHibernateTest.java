@@ -17,7 +17,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import co.edu.udea.iw.dao.DispositivoDao;
 import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Dispositivo;
-import co.edu.udea.iw.dto.TipoDispositivo;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -69,7 +68,7 @@ public class DispositivoDaoHibernateTest {
 	@Test
 	public void guardarDispositivo(){
 		int id = 7;
-		TipoDispositivo tipoDispositivo = new TipoDispositivo("7", "TABL");
+		String tipoDispositivo = "Tableta";
 		Boolean disponible = Boolean.TRUE;
 		String especificaciones = "Tablet de 100 pulgadas marca Eiser";
 		Administrador adminRegistrador = new Administrador("eduard", "Edwin", "Osorio", "", "");

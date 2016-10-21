@@ -12,7 +12,7 @@ public class Dispositivo {
 	 * caracteristicas o atributos que posee un dispositivo.
 	 */
 	private int id;
-	private TipoDispositivo tipoDispositivo;
+	private String tipoDispositivo;
 	private Boolean disponible;
 	private String especificaciones;
 	private Administrador adminRegistrador;
@@ -27,7 +27,7 @@ public class Dispositivo {
 	 * @param adminRegistrador - Administrador que registro el dispositivo en el sistema.
 	 * @param fechaRegistro - Fecha en la que se registro el dispositivo.
 	 */
-	public Dispositivo(int id, TipoDispositivo tipoDispositivo, Boolean disponible, String especificaciones,
+	public Dispositivo(int id, String tipoDispositivo, Boolean disponible, String especificaciones,
 			Administrador adminRegistrador, Date fechaRegistro) {
 		this.id = id;
 		this.tipoDispositivo = tipoDispositivo;
@@ -53,11 +53,11 @@ public class Dispositivo {
 		this.id = id;
 	}
 
-	public TipoDispositivo getTipoDispositivo() {
+	public String getTipoDispositivo() {
 		return tipoDispositivo;
 	}
 
-	public void setTipoDispositivo(TipoDispositivo tipoDispositivo) {
+	public void setTipoDispositivo(String tipoDispositivo) {
 		this.tipoDispositivo = tipoDispositivo;
 	}
 

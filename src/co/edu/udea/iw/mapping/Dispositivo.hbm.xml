@@ -7,9 +7,9 @@
             <column name="dis_id" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="tipoDispositivo" class="co.edu.udea.iw.dto.TipoDispositivo" fetch="join" >
-            <column name="dis_tipo_dispositivo" length="4" not-null="true"/>
-        </many-to-one>
+        <property name="tipoDispositivo" type="java.lang.String">
+            <column name="dis_tipo_dispositivo" length="20" not-null="true"/>
+        </property>
         <property name="disponible" type="boolean">
             <column name="dis_disponible" not-null="true"/>
         </property>

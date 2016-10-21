@@ -27,7 +27,6 @@
 			<list>
 				<value>co/edu/udea/iw/mapping/Administrador.hbm.xml</value>
 				<value>co/edu/udea/iw/mapping/Investigador.hbm.xml</value>
-				<value>co/edu/udea/iw/mapping/TipoDispositivo.hbm.xml</value>
 				<value>co/edu/udea/iw/mapping/Dispositivo.hbm.xml</value>
 			</list>
 		</property>
@@ -50,10 +49,6 @@
 	</bean>
 	
 	<bean id="investigadorDao" class="co.edu.udea.iw.dao.hibernate.InvestigadorDaoHibernate">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	
-	<bean id="tipoDispositivoDao" class="co.edu.udea.iw.dao.hibernate.TipoDispositivoDaoHibernate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
