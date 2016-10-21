@@ -14,7 +14,6 @@ import co.edu.udea.iw.exception.NeuroLabDaoException;
 
 /**
  * Implementacion de la interface que permite acceder a la tabla tab_dispositivos.
- * @author Juan Fernando Moreno
  * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
  */
 public class DispositivoDaoHibernate implements DispositivoDao {

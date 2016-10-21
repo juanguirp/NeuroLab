@@ -35,7 +35,7 @@ public class SolicitudPrestamo {
 	 * @param adminProcesador
 	 *            -Identificacion del administrador que procesa la solicitud.
 	 * @param respuesta
-	 *            - 0: No aprobada, 1: Aprobada
+	 *            - 0 o false: No aprobada, 1 o true: Aprobada
 	 */
 	public SolicitudPrestamo(int id, Dispositivo dispositivoSolicitado, Date fechaSolicitud, Investigador solicitante,
 			Administrador adminProcesador, Boolean respuesta) {
