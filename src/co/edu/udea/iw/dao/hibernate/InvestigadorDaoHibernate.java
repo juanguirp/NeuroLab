@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 
 import co.edu.udea.iw.dao.InvestigadorDao;
 import co.edu.udea.iw.dto.Investigador;
@@ -67,13 +66,14 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 	 */
 	@Override
 	public Investigador obtenerInvestigador(String id) throws NeuroLabDaoException {
-		Session session = null;
+		
 		Investigador investigador = null;
+		
 
 		try {
-			session = sessionFactory.openSession();
-			Criteria criteria = session.createCriteria(Investigador.class).add(Restrictions.eq("inv_id", id));
-			investigador = (Investigador) criteria.uniqueResult();
+			List<Investigador> investigadores = listarInvestigadores();
+			investigador = investigadores.get(0);
+			
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
 		}
@@ -91,10 +91,13 @@ public class InvestigadorDaoHibernate implements InvestigadorDao {
 	@Override
 	public void registrarInvestigador(Investigador investigador) throws NeuroLabDaoException {
 		Session session = null;
-
+		//Transaction tx = null;
 		try {
 			session = sessionFactory.openSession();
+			// Descomentar tx para persistir los cambios hechos en las pruebas.
+			//tx = session.beginTransaction();
 			session.save(investigador);
+			//tx.commit();
 		} catch (HibernateException e) {
 			throw new NeuroLabDaoException(e);
 		}
