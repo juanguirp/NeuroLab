@@ -155,9 +155,7 @@ public class DispositivoDaoHibernate implements DispositivoDao {
 	@Override
 	public void actualizarDispositivo(Dispositivo dispositivo) throws NeuroLabDaoException {
 		Session session = null;
-		Dispositivo dispositivo = new Dispositivo();
-		dispositivo.setId(id);
-
+		
 		try {
 			session = sessionFactory.openSession();
 			session.update(dispositivo);
