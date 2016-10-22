@@ -1,6 +1,7 @@
 #NeuroLab - Aplicación web para el préstamo de dispositivos en el Laboratorio del Grupo de Investigación de Neurociencias
 
-1. Modelo basico: (https://github.com/juanguirp/NeuroLab/blob/master/recursos/imagenes/modelo.png)
+1. Modelo basico:
+![alt text](https://github.com/juanguirp/NeuroLab/blob/master/recursos/imagenes/modelo.png "Modelo")
 2. Librerias necesarias [aquí.](https://github.com/juanguirp/NeuroLab/tree/master/recursos/bibliotecas)
 3. Credenciales para conexion a la bd [aquí.](https://github.com/juanguirp/NeuroLab/blob/master/src/bd_neurolab.properties)
 4. Configuración de Log4j [aquí.](https://github.com/juanguirp/NeuroLab/blob/master/src/log4j.properties)
