@@ -32,7 +32,7 @@ public interface PrestamoBl {
 	 * @throws NeuroLabDaoException
 	 *             cuando hay algun problema en la conexion.
 	 */
-	public void registrarPrestamo(int id, SolicitudPrestamo solicitudAsociada, Dispositivo dispositivoSolicitado,
-			Date horaEntrega, Date horaDevolucion, int horasSolicitadas) throws NeuroLabDaoException;
+	public void registrarPrestamo(int id, int solicitudAsociada, Date horaEntrega, Date horaDevolucion,
+			int horasSolicitadas) throws NeuroLabDaoException;
 
 }

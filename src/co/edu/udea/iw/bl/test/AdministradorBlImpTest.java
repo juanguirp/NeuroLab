@@ -14,10 +14,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import co.edu.udea.iw.bl.AdministradorBl;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
+/**
+ * Prueba para la clase AdministradorBlImp.
+ * 
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = ("classpath:configuracion.cfg.xml"))
 public class AdministradorBlImpTest {
-
 
 	@Autowired
 	AdministradorBl administradorBl;
@@ -39,7 +43,7 @@ public class AdministradorBlImpTest {
 			// TODO: handle exception
 		}
 	}
-	
+
 	@Test
 	public void validarRegistroAdmistrador() {
 		try {
@@ -49,8 +53,5 @@ public class AdministradorBlImpTest {
 			// TODO: handle exception
 		}
 	}
-	
-	
-
 
 }

@@ -15,6 +15,11 @@ import co.edu.udea.iw.bl.InvestigadorBl;
 import co.edu.udea.iw.dto.Investigador;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
+/**
+ * Prueba para la clase InvestigadorBlImp.
+ * 
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = ("classpath:configuracion.cfg.xml"))
 public class InvestigadorBlImpTest {
@@ -39,7 +44,7 @@ public class InvestigadorBlImpTest {
 			// TODO: handle exception
 		}
 	}
-	
+
 	@Test
 	public void validarRegistroInvestigador() {
 		try {
@@ -49,7 +54,5 @@ public class InvestigadorBlImpTest {
 			// TODO: handle exception
 		}
 	}
-	
-	
 
 }
