@@ -12,7 +12,7 @@
 			<column name="sol_dispositivo_solicitado" not-null="true" />
 		</many-to-one>
 		<property name="fechaSolicitud" type="java.util.Date">
-			<column name="sol_fecha_registro" length="120" not-null="true" />
+			<column name="sol_fecha_solicitud" length="120" not-null="true" />
 		</property>
 		<many-to-one name="solicitante" class="co.edu.udea.iw.dto.Investigador"
 			fetch="join">
