@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Soy una pagina cualquiera en ng-2</title>
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript">
+
+function escribir() {
+
+	var texto = document.getElementById("textDigitado").value;
+	var nombreC = document.getElementById("nombreC").value;
+
+	nombreC.innerHTML = texto;
+}
+
+</script>
+</head>
+<body ng-app>
+Digite su nombre
+<input type="text" size="40" ng-model="nombre">
+<br>
+Nombre digitado: <div>{{nombre}}</div> 
+
+<br>
+<br>
+<br>
+<br>
+
+Digite su nombre:
+<input type="text" size="40" id="textDigitado" onkeypress="escribir">
+<br>
+Nombre digitado: <div id="nombreC"></div> 
+
+
+</body>
+</html>
