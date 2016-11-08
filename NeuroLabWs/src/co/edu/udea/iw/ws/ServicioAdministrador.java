@@ -39,8 +39,10 @@ public class ServicioAdministrador {
 					throws RemoteException{
 		
 		boolean esAdminValido = false;
-		AdministradorWs administradorWs = null;
-		Administrador administrador = null;
+		
+		// TODO: MOSTRAR LOS DATOS DEL ADMIN EN PANTALLA (FORMATO JSON)
+		// AdministradorWs administradorWs = null;
+		// Administrador administrador = null;
 		
 		try {
 			esAdminValido = administradorBl.validarAdministrador(id, contrasena);
@@ -49,6 +51,19 @@ public class ServicioAdministrador {
 		}
 		
 		return esAdminValido;
+	}
+	
+	@GET
+	@Path("registrarAdministrador/{id}/{nombre}/{apellidos}/{correo}/{contrasena}")
+	public void crearCuentaAdministrador(String id, String nombre, String apellidos, String correo, String contrasena)
+			throws RemoteException {
+		
+		try {
+			administradorBl.crearCuentaAdministrador(id, nombre, apellidos, correo, contrasena);
+		}catch (NeuroLabDaoException e) {
+			throw new RemoteException(e.getMessage(), e);
+		}
+		
 	}
 
 }
