@@ -30,7 +30,7 @@ public class AdministradorWs {
 	 * @param contrasena
 	 *            - Contrasena de un administrador.
 	 */
-	public Administrador(String id, String nombre, String apellidos, String correo, String contrasena) {
+	public AdministradorWs(String id, String nombre, String apellidos, String correo, String contrasena) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -38,7 +38,7 @@ public class AdministradorWs {
 		this.contrasena = contrasena;
 	}
 
-	public Administrador() {
+	public AdministradorWs() {
 
 	}
 
