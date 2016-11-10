@@ -15,6 +15,11 @@ import co.edu.udea.iw.bl.SolicitudPrestamoBl;
 import co.edu.udea.iw.dto.SolicitudPrestamo;
 import co.edu.udea.iw.exception.NeuroLabDaoException;
 
+/**
+ * Clase que implementa los servicios rest para una solicitud.
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ *
+ */
 @Path("ServicioSolicitudPrestamo")
 @Component
 public class ServicioSolicitudPrestamo {
@@ -22,6 +27,9 @@ public class ServicioSolicitudPrestamo {
 	@Autowired
 	SolicitudPrestamoBl solicitudPrestamoBl;
 
+	/*
+	 * Getters y Setters para los atributos de una solicitud.
+	 */
 	public SolicitudPrestamoBl getSolicitudPrestamoBl() {
 		return solicitudPrestamoBl;
 	}
@@ -30,7 +38,11 @@ public class ServicioSolicitudPrestamo {
 		this.solicitudPrestamoBl = solicitudPrestamoBl;
 	}
 
-	
+	/**
+	 * Permite obtener una lista de solicitudes de prestamo en el sistema.
+	 * @return - Lista de solicitudes de prestamo.
+	 * @throws RemoteException
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("listarSolicitudesPrestamo")

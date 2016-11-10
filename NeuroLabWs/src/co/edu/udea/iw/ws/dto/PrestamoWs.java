@@ -6,10 +6,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import co.edu.udea.iw.dto.SolicitudPrestamo;
 
+/**
+ * Clase que almacena la informacion de un prestamo.
+ * 
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ *
+ */
 @XmlRootElement
 public class PrestamoWs {
 
-	
 	private int id;
 	private SolicitudPrestamo solicitudAsociada;
 	private Date horaEntrega;
@@ -19,6 +24,8 @@ public class PrestamoWs {
 	/**
 	 * Constructores para un objeto de la clase Prestamo.
 	 * 
+	 * @param id
+	 *            - Identificador de una solicitud.
 	 * @param solicitud
 	 *            - Numero de identificacion de un prestamo asociada.
 	 * @param horaEntrega
@@ -85,6 +92,5 @@ public class PrestamoWs {
 	public void setHorasSolicitadas(int horasSolicitadas) {
 		this.horasSolicitadas = horasSolicitadas;
 	}
-	
-	
+
 }

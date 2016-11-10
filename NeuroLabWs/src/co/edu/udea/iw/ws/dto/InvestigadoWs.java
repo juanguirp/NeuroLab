@@ -2,6 +2,11 @@ package co.edu.udea.iw.ws.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Clase que almacena la informacion de un investigador.
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ *
+ */
 @XmlRootElement
 public class InvestigadoWs {
 

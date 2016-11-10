@@ -6,6 +6,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import co.edu.udea.iw.dto.Administrador;
 
+/**
+ * Clase que almacena la informacion de un dispositivo.
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ *
+ */
 @XmlRootElement
 public class DispositivoWs {
 	

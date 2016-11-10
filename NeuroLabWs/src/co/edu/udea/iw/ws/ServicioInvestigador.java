@@ -28,6 +28,9 @@ public class ServicioInvestigador {
 		@Autowired
 		InvestigadorBl investigadorbl;
 
+		/*
+		 * Getters y Setters para los atributos de un investigador.
+		 */
 		public InvestigadorBl getInvestigadorbl() {
 			return investigadorbl;
 		}
@@ -67,7 +70,7 @@ public class ServicioInvestigador {
 		 * @param apellidos
 		 * @param correo
 		 * @param contrasena
-		 * @return La id y contraseña del investigador si se a creado exitosamente
+		 * @return La id y contraseï¿½a del investigador si se a creado exitosamente
 		 * @throws RemoteException
 		 */
 		@POST

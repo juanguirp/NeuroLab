@@ -19,13 +19,15 @@ import co.edu.udea.iw.ws.dto.DispositivoWs;
 /**
  * Clase que implementa el servicio rest para la Dispositivo
  * @author Juan Fernando Moreno juan.moreno1@udea.edu.co
- *
  */
 @Path("ServicioDispositivo")
 public class ServicioDispositivo {
 	
 	DispositivoBl dispositivoBl;
 
+	/*
+	 * Getters y Setters para los atributos de un dispositivo.
+	 */
 	public DispositivoBl getDispositivoBl() {
 		return dispositivoBl;
 	}

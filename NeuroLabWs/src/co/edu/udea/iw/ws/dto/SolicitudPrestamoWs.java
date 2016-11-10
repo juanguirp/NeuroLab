@@ -8,6 +8,11 @@ import co.edu.udea.iw.dto.Administrador;
 import co.edu.udea.iw.dto.Dispositivo;
 import co.edu.udea.iw.dto.Investigador;
 
+/**
+ * Clase que almacena la informacion de una solicitud de prestamo.
+ * @author Juan Guillermo Restrepo Pineda <juan.restrepo48@udea.edu.co>
+ *
+ */
 @XmlRootElement
 public class SolicitudPrestamoWs {
 
