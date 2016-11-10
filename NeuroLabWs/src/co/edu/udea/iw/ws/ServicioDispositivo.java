@@ -46,9 +46,8 @@ public class ServicioDispositivo {
 	 */
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("registrarDispositivo/{id}/{tipoDispositivo}/{disponible}/{especificaciones}/{admresgistrador}")
-	public DispositivoWs registrarDispositivo(@PathParam("id")int id, @PathParam("tipoDispositivo")String tipoDispositivo, @PathParam("disponible")Boolean disponible, @PathParam("especificaciones")String especificaciones,
-			@PathParam("adminRegistrador")String adminRegistrador) throws RemoteException{
+	@Path("registrarDispositivo/{id}/{tipoDispositivo}/{disponible}/{especificaciones}")
+	public DispositivoWs registrarDispositivo(@PathParam("id")int id, @PathParam("tipoDispositivo")String tipoDispositivo, @PathParam("disponible")Boolean disponible, @PathParam("especificaciones")String especificaciones) throws RemoteException{
 		
 
 		DispositivoWs dispositivoWs = null;
@@ -58,7 +57,6 @@ public class ServicioDispositivo {
 		dispositivoWs.setTipoDispositivo(tipoDispositivo);
 		dispositivoWs.setDisponible(disponible);
 		dispositivoWs.setEspecificaciones(especificaciones);
-		dispositivoWs.setAdminRegistrador(adminRegistrador);
 		
 		return dispositivoWs;
 		
